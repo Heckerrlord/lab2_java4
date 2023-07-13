@@ -12,20 +12,21 @@
 <body>
 
 	<section>
-		<ul>
-			<li>Tên đăng nhập: <b>${param.username}</b></li>
-			<li>Mật khẩu: <b>${param.password}</b></li>
-			<li>Giới tính: <b>${param.gender?"nam":"nu"}</b></li>
-			<li>Tình trạng hôn nhân: <b>${param.married?"co":"ko"}</b></li>
-			<li>Quốc tịch: <b>${param.country}</b></li>
-			<li>Sở thích: <b> <c:forEach var="hobby"
-						items="${param.hobbies}">
-						<li><c:out value="${hobby}" /></li>
-					</c:forEach></b></li>
+	<ul>
+		<li>Tên đăng nhập: <b>${param.username}</b></li>
+		<li>Mật khẩu: <b>${param.password}</b></li>
+		<li>Giới tính: <b>${param.gender == 'true' ? 'nam' : 'nữ'}</b></li>
+		<li>Tình trạng hôn nhân: <b>${param.married == 'true' ? 'có' : 'không'}</b></li>
+		<li>Quốc tịch: <b>${param.country}</b></li>
+		<li>Sở thích: 
+			<c:forEach var="hobby" items="${paramValues.hobbies}">
+				<li><c:out value="${hobby}" /></li>
+			</c:forEach>
+		</li>
+		<li>Ghi chú: <b>${param.notes}</b></li>
+	</ul>
+</section>
 
-			<li>Ghi chú: <b>${param.notes}</b></li>
-		</ul>
-	</section>
 
 </body>
 </html>
